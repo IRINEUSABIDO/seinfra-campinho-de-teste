@@ -1,12 +1,16 @@
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import { Field, FieldError, FieldGroup, FieldLabel } from "./components/ui/field";
+
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import z from "zod";
+import { z } from "zod";
 import { loginSchema } from "./schemas/zod.ts";
+
 import yellowLine from "./assets/IconsNewSvgs/yellowLine.svg";
 import pinkLine from "./assets/IconsNewSvgs/pinkLine.svg";
+import ConectaSeinfraIcon from "./assets/IconsNewSvgs/ConectaSeinfra.svg";
+import LogoPrefeitura from "./assets/IconsNewSvgs/LogoPrefeitura.svg";
 
 function App() {
   console.log(yellowLine);
@@ -24,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-svh flex-col">
+    <div className="flex min-h-screen h-auto flex-col">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
@@ -48,24 +52,43 @@ function App() {
             name="CPF"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name}>CPF</FieldLabel>
+                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">CPF</FieldLabel>
                 <Input {...field} id={field.name} />
                 {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
               </Field>
             )}
           />
-          <Field orientation={"vertical"}>
-            <FieldLabel>Senha</FieldLabel>
-            <Input type="password"></Input>
-            <Button className="px-4 py-3 mt-14 rounded-3xl">Continuar</Button>
-          </Field>
+          <Controller
+            control={form.control}
+            name="password"
+            render={({ field, fieldState }) => (
+              <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">Senha</FieldLabel>
+                <Input {...field} id={field.name} />
+                {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
+                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">Continuar</Button>
+              </Field>
+            )}
+          />
         </FieldGroup>
+        <footer className="flex items-center mt-4 text-center justify-center flex-col gap-8">
+          <h1 className="text-seinfra-blue-light-500">
+            Não tem uma conta? <br />{" "}
+            <a href="/criarConta" className="text-yellow-300 underline">
+              Criar Conta
+            </a>
+          </h1>
+          <div className="flex items-center justify-center mt-[5%] mb-[5%] gap-y-12 gap-x-24 sm:flex-row flex-col">
+            <img src={ConectaSeinfraIcon} alt="Logo do Conecta Seinfra" />
+            <img src={LogoPrefeitura} alt="LogoPrefeitura de Nova Russas" />
+          </div>
+        </footer>
+        <img
+          src={yellowLine}
+          alt="Yellow Line"
+          className="absolute right-0 bottom-0"
+        />
       </form>
-      <img
-        src={yellowLine}
-        alt="Linha Amarela Background"
-        className="absolute bottom-0 right-0"
-      />
     </div>
   );
 }
