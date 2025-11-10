@@ -1,34 +1,46 @@
-import { useId, useState } from 'react'
+import { useId, useState } from "react";
 
-import EyeIcon from "../../assets/IconsNewSvgs/passwordShow.svg"
-import EyeOffIcon from "../../assets/IconsNewSvgs/passwordHide.svg"
+import EyeIcon from "./../../assets/IconsNewSvgs/passwordShow.svg";
+import EyeOffIcon from "../../assets/IconsNewSvgs/passwordHide.svg";
 
-import { Button } from './../../components/ui/button'
-import { Input } from './../../components/ui/input'
-import { Label } from './../../components/ui/label'
+import { Button } from "./button.tsx";
+import { Input } from "./input.tsx";
+import { Label } from "./label.tsx";
 
-const InputPasswordDemo = () => {
-  const [isVisible, setIsVisible] = useState(false)
+const InputPassword = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const id = useId()
+  const id = useId();
 
   return (
-    <div className='w-full max-w-xs space-y-2'>
-      <Label htmlFor={id}>Password input</Label>
-      <div className='relative'>
-        <Input id={id} type={isVisible ? 'text' : 'password'} placeholder='Password' className='pr-9' />
+    <div className="w-[90vw] max-w-[600px]">
+      <Label htmlFor={id}>putaria</Label>
+      <div className="relative">
+        <Input
+          id={id}
+          type={isVisible ? "text" : "password"}
+          placeholder="penis "
+          className="pr-9"
+        />
         <Button
-          variant='ghost'
-          size='icon'
-          onClick={() => setIsVisible(prevState => !prevState)}
-          className='text-muted-foreground focus-visible:ring-ring/50 absolute inset-y-0 right-0 rounded-l-none hover:bg-transparent'
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsVisible((prevState) => !prevState)}
+          className="b"
         >
-          {isVisible ? <EyeOffIcon /> : <EyeIcon />}
-          <span className='sr-only'>{isVisible ? 'Hide password' : 'Show password'}</span>
+          <img
+            src={isVisible ? EyeIcon : EyeOffIcon}
+            alt={isVisible ? "Mostrar a senha " : "Esconder a Senha"}
+            className=""
+          />
+
+          <span className="sr-only">
+            {isVisible ? "Hide password" : "Show password"}
+          </span>
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InputPasswordDemo
+export default InputPassword;

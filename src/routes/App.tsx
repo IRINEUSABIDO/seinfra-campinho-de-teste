@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen h-auto flex-col">
+    <div className="flex min-h-screen h-auto flex-col overflow-x-hidden ">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
@@ -38,7 +38,7 @@ function App() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex gap-8 flex-col justify-center items-center w-screen h-auto min-h-screen"
       >
-        <div className="text-center">
+        <div className="text-center mt-[5%]">
           <h1 className="text-5xl font-semibold font-manrope text-seinfra-blue-light-700 mb-4">
             Login
           </h1>
