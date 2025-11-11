@@ -14,19 +14,20 @@ const InputPassword = () => {
 
   return (
     <div className="w-[90vw] max-w-[600px]">
-      <Label htmlFor={id}>putaria</Label>
+      <Label htmlFor={id}>Senha</Label>
       <div className="relative">
         <Input
           id={id}
           type={isVisible ? "text" : "password"}
-          placeholder="penis "
-          className="pr-9"
+          placeholder="digite sua senha"
+          className=""
         />
+
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setIsVisible((prevState) => !prevState)}
-          className="b"
+          className="absolute right-1 top-1/2 -translate-1/2 "
         >
           <img
             src={isVisible ? EyeIcon : EyeOffIcon}
