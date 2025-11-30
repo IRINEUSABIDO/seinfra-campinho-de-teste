@@ -1,11 +1,16 @@
-import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
-import { Field, FieldError, FieldGroup, FieldLabel } from "./components/ui/field";
+import { Button } from "./../components/ui/button.tsx";
+import { Input } from "./../components/ui/input";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "./../components/ui/field";
 
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { loginSchema } from "./schemas/zod.ts";
+import { loginSchema } from "./../schemas/zod.ts";
 
 import yellowLine from "./assets/IconsNewSvgs/yellowLine.svg";
 import pinkLine from "./assets/IconsNewSvgs/pinkLine.svg";
@@ -52,9 +57,16 @@ function App() {
             name="CPF"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">CPF</FieldLabel>
+                <FieldLabel
+                  htmlFor={field.name}
+                  className="text-center w-full justify-self-start max-w-[600px]"
+                >
+                  CPF
+                </FieldLabel>
                 <Input {...field} id={field.name} />
-                {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
               </Field>
             )}
           />
@@ -63,10 +75,19 @@ function App() {
             name="password"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">Senha</FieldLabel>
+                <FieldLabel
+                  htmlFor={field.name}
+                  className="text-center w-full justify-self-start max-w-[600px]"
+                >
+                  Senha
+                </FieldLabel>
                 <Input {...field} id={field.name} />
-                {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
-                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">Continuar</Button>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">
+                  Continuar
+                </Button>
               </Field>
             )}
           />

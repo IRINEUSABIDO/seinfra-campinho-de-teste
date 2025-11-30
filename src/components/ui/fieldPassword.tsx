@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useId, useState } from "react";
+import { useState } from "react";
 
 import EyeIcon from "../../assets/IconsNewSvgs/passwordShow.svg";
 import EyeIconOff from "../../assets/IconsNewSvgs/passwordHide.svg";
