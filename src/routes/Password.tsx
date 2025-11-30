@@ -13,7 +13,6 @@ import {
   FieldLabel,
 } from "./../components/ui/field";
 import { Input } from "./../components/ui/input";
-import InputPassword from "../components/ui/inputPassword.tsx";
 import { loginSchema } from "./../schemas/zod.ts";
 
 function Password() {
