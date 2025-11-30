@@ -1,17 +1,20 @@
-import { Button } from "./../components/ui/button";
-import { Input } from "./../components/ui/input";
-import { Field, FieldError, FieldGroup, FieldLabel } from "./../components/ui/field";
-import InputPassword from "../components/ui/inputPassword.tsx";
-
-import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
-import { loginSchema } from "./../schemas/zod.ts";
-
-import yellowLine from "./../assets/IconsNewSvgs/yellowLine.svg";
-import pinkLine from "./../assets/IconsNewSvgs/pinkLine.svg";
 import ConectaSeinfraIcon from "./../assets/IconsNewSvgs/ConectaSeinfra.svg";
 import LogoPrefeitura from "./../assets/IconsNewSvgs/LogoPrefeitura.svg";
+import pinkLine from "./../assets/IconsNewSvgs/pinkLine.svg";
+import yellowLine from "./../assets/IconsNewSvgs/yellowLine.svg";
+import { Button } from "./../components/ui/button";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "./../components/ui/field";
+import { Input } from "./../components/ui/input";
+import InputPassword from "../components/ui/inputPassword.tsx";
+import { loginSchema } from "./../schemas/zod.ts";
 
 function Password() {
   console.log(yellowLine);
@@ -29,7 +32,7 @@ function Password() {
   }
 
   return (
-    <div className="flex min-h-screen h-auto flex-col overflow-x-hidden ">
+    <div className="flex index min-h-screen h-auto flex-col overflow-x-hidden ">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
@@ -54,9 +57,16 @@ function Password() {
             name="CPF"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">CPF</FieldLabel>
+                <FieldLabel
+                  htmlFor={field.name}
+                  className="text-center w-full justify-self-start max-w-[600px]"
+                >
+                  CPF
+                </FieldLabel>
                 <Input {...field} id={field.name} />
-                {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
               </Field>
             )}
           />
@@ -65,15 +75,22 @@ function Password() {
             name="password"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="text-center w-full justify-self-start max-w-[600px]">Senha</FieldLabel>
+                <FieldLabel
+                  htmlFor={field.name}
+                  className="text-center w-full justify-self-start max-w-[600px]"
+                >
+                  Senha
+                </FieldLabel>
                 <Input {...field} id={field.name} />
-                {fieldState.invalid && (<FieldError errors={[fieldState.error]} />)}
-                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">Continuar</Button>
-                <InputPassword />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">
+                  Continuar
+                </Button>
               </Field>
             )}
           />
-
         </FieldGroup>
         <footer className="">
           <div className="flex items-center justify-center mt-[5%] mb-[5%] gap-y-12 gap-x-24 sm:flex-row">
@@ -92,4 +109,3 @@ function Password() {
 }
 
 export default Password;
-
